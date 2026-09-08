@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador - Painel Admin</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body style="padding: 2rem 1.5rem;">
+    <div style="max-width: 1000px; margin: 0 auto;">
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <h1>Painel Administrativo</h1>
+            <button id="btn-logout" class="btn-secondary" style="background:#ef4444; border:none; cursor:pointer;">Sair</button>
+        </div>
+
+        <!-- Seção: Textos Principais -->
+        <div class="card" style="padding: 1.5rem; margin-bottom: 2rem;">
+            <h3>Editar Textos da Home</h3>
+            <label style="display:block; margin-top:10px;">Título Principal:</label>
+            <input type="text" id="hero_title">
+            <label style="display:block;">Subtítulo:</label>
+            <textarea id="hero_subtitle" rows="2"></textarea>
+            <button onclick="saveSettings()" class="btn-cta" style="border-radius: 8px;">Publicar Alterações</button>
+        </div>
+
+        <!-- Seção: Cadastrar/Editar Cursos -->
+        <div class="card" style="padding: 1.5rem; margin-bottom: 2rem;">
+            <h3>Gerenciar Cursos</h3>
+            <form id="course-form" style="margin-top: 10px;">
+                <input type="hidden" id="course_id">
+                <input type="text" id="course_title" placeholder="Nome do Curso" required>
+                <textarea id="course_desc" placeholder="Descrição Curta" required></textarea>
+                <input type="text" id="course_image" placeholder="URL da Imagem da Capa" required>
+                <input type="number" step="0.01" id="course_price" placeholder="Preço (ex: 197.00)" required>
+                <input type="url" id="course_cakto" placeholder="Link do Checkout Cakto (https://pay.cakto.com.br/...)" required>
+                
+                <textarea id="course_learn" placeholder="O que o aluno aprenderá"></textarea>
+                <textarea id="course_target" placeholder="Para quem é o curso"></textarea>
+                <textarea id="course_modules" placeholder="Módulos do Curso"></textarea>
+
+                <label style="display:flex; align-items:center; gap: 10px; margin-bottom: 1rem;">
+                    <input type="checkbox" id="course_active" checked style="width: auto; margin:0;"> Curso Ativo
+                </label>
+
+                <button type="submit" class="btn-buy" style="background: var(--primary);">Salvar Curso</button>
+            </form>
+        </div>
+
+        <!-- Lista de Cursos -->
+        <div class="card" style="padding: 1.5rem;">
+            <h3>Cursos Cadastrados</h3>
+            <div id="admin-courses-list" style="margin-top: 1rem;"></div>
+        </div>
+
+    </div>
+
+    <script src="/admin/js/admin.js"></script>
+</body>
+</html>
